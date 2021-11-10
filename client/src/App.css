@@ -1,3 +1,7 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.mw-75 {
+  max-width: 75%;
+}
