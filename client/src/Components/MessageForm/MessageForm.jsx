@@ -36,7 +36,7 @@ const MessageForm = ({ user }) => {
               <Form.Label htmlFor="inlineFormInputGroup" visuallyHidden>
                 Message
               </Form.Label>
-              <InputGroup className="mb-2">
+              <InputGroup>
                 <FormControl
                   autoComplete="off"
                   id="inlineFormInputGroup"
@@ -52,11 +52,7 @@ const MessageForm = ({ user }) => {
               </InputGroup>
             </Col>
             <Col className="d-flex flex-row-reverse" xs="2" lg="1">
-              <Button
-                type="button"
-                className="mb-2"
-                onClick={() => sendMessage()}
-              >
+              <Button type="button" onClick={() => sendMessage()}>
                 Send
               </Button>
             </Col>

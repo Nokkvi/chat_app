@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 
-import { Container } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 
 import MessageForm from "Components/MessageForm/MessageForm";
 import Messages from "Components/Messages/Messages";
+import SetUsernameModal from "Components/SetUsernameModal/SetUsernameModal";
 
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import { WebSocketLink } from "@apollo/client/link/ws";
@@ -20,11 +21,29 @@ const client = new ApolloClient({
 });
 
 const Chat = () => {
-  const [user, setUser] = useState("John");
+  const [user, setUser] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(true);
   return (
-    <Container>
+    <Container className="border p-1">
+      <Row>
+        <Col className="d-flex flex-row-reverse">
+          <Button
+            type="button"
+            className="mb-2 btn-light"
+            onClick={() => setIsModalOpen(true)}
+          >
+            Change Name
+          </Button>
+        </Col>
+      </Row>
       <Messages user={user} />
       <MessageForm user={user} />
+      <SetUsernameModal
+        open={isModalOpen}
+        onSubmit={setUser}
+        onClose={() => setIsModalOpen(false)}
+        user={user}
+      />
     </Container>
   );
 };
