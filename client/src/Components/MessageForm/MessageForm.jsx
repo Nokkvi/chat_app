@@ -24,16 +24,15 @@ const MessageForm = ({ user }) => {
     if (content.length > 0) {
       postMessage({ variables: { user, content } });
     }
-    console.log("setting content");
     setContent("");
   };
 
   return (
-    <Row>
+    <Row className="mt-1">
       <Col xs="12" className="">
         <Form onSubmit={(e) => e.preventDefault()}>
           <Row>
-            <Col xs="11">
+            <Col xs="10" lg="11">
               <Form.Label htmlFor="inlineFormInputGroup" visuallyHidden>
                 Message
               </Form.Label>
@@ -52,7 +51,7 @@ const MessageForm = ({ user }) => {
                 />
               </InputGroup>
             </Col>
-            <Col xs="1">
+            <Col className="d-flex flex-row-reverse" xs="2" lg="1">
               <Button
                 type="button"
                 className="mb-2"
